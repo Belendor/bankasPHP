@@ -4,12 +4,12 @@ session_start();
 
 if (isset($_GET['logout'])) {
     session_destroy();
-    header('Location: /grazus/bankas/login.php');
+    header('Location: /bankas/login.php');
     die();
 }
 
 if (isset($_SESSION['login'])) {
-    header('Location: /grazus/bankas/saskaitu-sarasas.php');
+    header('Location: /bankas/saskaitu-sarasas.php');
     die();
 }
 
@@ -24,7 +24,7 @@ if(!empty($_POST)){
                 if(md5($_POST["password"]) == $arr["password"]){
                     _d('authenticated');
                     $_SESSION['login'] = 1;
-                    header('Location: /grazus/bankas/saskaita.php');
+                    header('Location: /bankas/saskaita.php');
                     die();
                 };
             }

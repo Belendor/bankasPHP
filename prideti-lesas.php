@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['login']) || $_SESSION['login'] != 1) {
-    header('Location: /grazus/bankas/login.php');
+    header('Location: /bankas/login.php');
     die();
 }
 
@@ -22,11 +22,11 @@ if(!empty($_POST)){
 
         file_put_contents(__DIR__ .'/data.json', json_encode($data));
 
-        header("Location: /grazus/bankas/prideti-lesas.php?account=".$_POST['account']."");
+        header("Location: /bankas/prideti-lesas.php?account=".$_POST['account']."");
         die();
     }
 
-    $input = '<form action="/grazus/bankas/prideti-lesas.php" method="post">
+    $input = '<form action="/bankas/prideti-lesas.php" method="post">
             <input type="number" name="sum">
             <input type="hidden" name="name" value="'.$_POST['name'].'">
             <input type="hidden" name="surename" value="'.$_POST['surename'].'">
@@ -60,7 +60,7 @@ if(!empty($_GET)){
 
     }
 
-    $input = '<form action="/grazus/bankas/prideti-lesas.php" method="post">
+    $input = '<form action="/bankas/prideti-lesas.php" method="post">
             <input type="number" name="sum" min="0">
             <input type="hidden" name="name" value="'.$selected['name'].'">
             <input type="hidden" name="surename" value="'.$selected['surename'].'">
@@ -121,7 +121,7 @@ if(!empty($_GET)){
 
     </table>
 
-    <a href="/grazus/bankas/saskaitu-sarasas.php">Perziureti visas saskaitas</a><br>
-    <a href="/grazus/bankas/login.php?logout">Atsijungti</a><br>
+    <a href="/bankas/saskaitu-sarasas.php">Perziureti visas saskaitas</a><br>
+    <a href="/bankas/login.php?logout">Atsijungti</a><br>
 </body>
 </html>

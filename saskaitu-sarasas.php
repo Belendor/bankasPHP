@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['login']) || $_SESSION['login'] != 1) {
-    header('Location: /grazus/bankas/login.php');
+    header('Location: /bankas/login.php');
     die();
 }
 
@@ -42,7 +42,7 @@ $sorted = bubleSort($data);
 
 function generateAdd ($name, $surename, $saskaita, $asmensKodas, $lesos){
 
-    return '<form action="/grazus/bankas/prideti-lesas.php" method="post">
+    return '<form action="/bankas/prideti-lesas.php" method="post">
             <input type="hidden" name="name" value="'.$name.'">
             <input type="hidden" name="surename" value="'.$surename.'">
             <input type="hidden" name="account" value="'.$saskaita.'">
@@ -55,7 +55,7 @@ function generateAdd ($name, $surename, $saskaita, $asmensKodas, $lesos){
 
 function generateRemove ($name, $surename, $saskaita, $asmensKodas, $lesos){
 
-    return '<form action="/grazus/bankas/nuskaiciuoti-lesas.php" method="post">
+    return '<form action="/bankas/nuskaiciuoti-lesas.php" method="post">
             <input type="hidden" name="name" value="'.$name.'">
             <input type="hidden" name="surename" value="'.$surename.'">
             <input type="hidden" name="account" value="'.$saskaita.'">
@@ -68,7 +68,7 @@ function generateRemove ($name, $surename, $saskaita, $asmensKodas, $lesos){
 
 function delete ($saskaita){
 
-    return '<form action="/grazus/bankas/istrinti.php" method="post">
+    return '<form action="/bankas/istrinti.php" method="post">
             <input type="hidden" name="delete" value="'.$saskaita.'">
             <button style="background-color: red" type="submit">Istrinti saskaita</button>
             </form>';
@@ -130,9 +130,9 @@ foreach($sorted as $value){
         </table>
     </div>
 
-    <a href="/grazus/bankas/saskaita.php">Sukurti nauja saskaita</a><br>
+    <a href="/bankas/saskaita.php">Sukurti nauja saskaita</a><br>
 
-    <a href="/grazus/bankas/login.php?logout">Atsijungti</a><br>
+    <a href="/bankas/login.php?logout">Atsijungti</a><br>
 
 </body>
 </html>
