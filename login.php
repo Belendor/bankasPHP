@@ -13,7 +13,6 @@ if (isset($_SESSION['login'])) {
     die();
 }
 
-
 if(!empty($_POST)){
 
     $data = json_decode(file_get_contents(__DIR__ .'/admin.json'),1);
@@ -22,7 +21,6 @@ if(!empty($_POST)){
 
             if($_POST['name'] == $arr['name']){
                 if(md5($_POST["password"]) == $arr["password"]){
-                    _d('authenticated');
                     $_SESSION['login'] = 1;
                     header('Location: /saskaita.php');
                     die();
@@ -30,7 +28,6 @@ if(!empty($_POST)){
             }
         }
 }
-
 
 ?>
 
