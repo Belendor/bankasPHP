@@ -1,0 +1,128 @@
+body{
+    font-family: 'SEB Sans Serif';
+}
+
+
+
+.container{
+    margin-top: 100px;
+    display: flex;
+    width: 500px;
+    background-color: #F2F2F2;
+    margin-left: calc( 50% - 250px);
+    padding: 10px;
+}
+
+.lock{
+    display: flex;
+    width: 40%;
+    float: left;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    display: inline-block;
+    width: 60%;
+    float: left;
+    margin-left: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    margin: 10px 5px;
+}
+input{
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    border: solid 1px grey;
+    padding-left: 5px;
+}
+
+.lock-box{
+    display: flex;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% ;
+}
+    i{
+        font-size: 60px;
+
+    }
+
+button{
+    width: 80px;
+    height: 30px;
+    background-color: #0092E1;
+    border: unset;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover{
+    background-color: #71b6db;
+}
+
+.line{
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 40px;
+    margin-bottom: 5px;
+}
+
+.menu{
+    display: inline-block;
+    padding: 5px 0;
+}
+
+a{
+    font-family: 'SEB Sans Serif';
+    text-decoration: unset;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+a:hover{
+    color: rgb(3, 3, 44);
+}
+
+.text-icon{
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+p{
+    width: 100%;
+}
+
+.error{
+    color:red;
+    margin-bottom: 4px;
+    margin-top: -4px;
+}
+.message{
+    border-radius: 10px;
+    line-height: 30px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.red{
+    background-color: rgba(201, 63, 63, 0.74);
+}
+
+.green{
+    background-color: rgba(35, 173, 35, 0.74);
+}
