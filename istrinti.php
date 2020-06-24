@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['login']) || $_SESSION['login'] != 1) {
-    header('Location: /login.php');
+    header('Location: ./login.php');
     die();
 }
 
@@ -25,7 +25,7 @@ if(array_key_exists('delete', $_POST)){
 
     file_put_contents(__DIR__ .'/data.json', json_encode($data));
 
-    header("Location: /saskaitu-sarasas.php");
+    header("Location: ./saskaitu-sarasas.php");
     die();
 }
 

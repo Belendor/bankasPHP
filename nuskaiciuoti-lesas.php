@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['login']) || $_SESSION['login'] != 1) {
-    header('Location: /login.php');
+    header('Location: ./login.php');
     die();
 }
 
@@ -25,12 +25,12 @@ if(!empty($_POST)){
 
         file_put_contents(__DIR__ .'/data.json', json_encode($data));
 
-        header("Location: /nuskaiciuoti-lesas.php?account=".$_POST['account']."");
+        header("Location: ./nuskaiciuoti-lesas.php?account=".$_POST['account']."");
         die();
     }
 
 
-    $input = '<form action="/nuskaiciuoti-lesas.php" method="post">
+    $input = '<form action="./nuskaiciuoti-lesas.php" method="post">
             <input type="number" name="sum" min="0">
             <input type="hidden" name="name" value="'.$_POST['name'].'">
             <input type="hidden" name="surename" value="'.$_POST['surename'].'">
@@ -64,7 +64,7 @@ if(!empty($_GET)){
 
     }
 
-    $input = '<form action="/nuskaiciuoti-lesas.php" method="post">
+    $input = '<form action="./nuskaiciuoti-lesas.php" method="post">
             <input type="number" name="sum">
             <input type="hidden" name="name" value="'.$selected['name'].'">
             <input type="hidden" name="surename" value="'.$selected['surename'].'">
@@ -85,7 +85,6 @@ if(!empty($_GET)){
                 </tr>';
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -93,9 +92,35 @@ if(!empty($_GET)){
 <head>
 
     <style>
-        table, th, td {
-        border: 1px solid black;
+        td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
         }
+
+        tr:nth-child(even){background-color: #f2f2f2;}
+
+        tr:hover {background-color: #ddd;}
+
+        th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #0092E1;
+        color: white;
+        }
+
+        .menu{
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        a{
+            font-family: 'SEB Sans Serif';
+            text-decoration: unset;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
     </style> 
 
     <meta charset="UTF-8">
@@ -125,7 +150,11 @@ if(!empty($_GET)){
 
     </table>
 
-    <a href="/saskaitu-sarasas.php">Perziureti visas saskaitas</a><br>
-    <a href="/login.php?logout">Atsijungti</a><br>
+    <div class="menu">
+        <a href="./saskaita.php">Sukurti nauja saskaita</a><br>
+        <a href="./saskaitu-sarasas.php">Perziureti saskaitu sarasa <i class="text-icon icon-external-link"></i></a><br>
+        <a href="./login.php?logout">Atsijungti <i class="icon-signout text-icon"></i> </a><br>
+    </div>
+    
 </body>
 </html>

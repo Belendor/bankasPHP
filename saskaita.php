@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['login']) || $_SESSION['login'] != 1) {
-    header('Location: /login.php');
+    header('Location: ./login.php');
     die();
 }
 
@@ -12,19 +12,19 @@ if(!empty($_POST) && !empty($_POST['name'])){
 
     if(strlen($_POST['user-nr']) != 11){
         $_SESSION['note'] = 'Neteisingas asmens kodo formatas';
-        header("Location: /saskaita.php");
+        header("Location: ./saskaita.php");
         die();
     }
 
     if(strlen($_POST['name']) < 3){
         $_SESSION['note'] = 'Vardas yra per trumpas';
-        header("Location: /saskaita.php");
+        header("Location: ./saskaita.php");
         die();
     }
 
     if(strlen($_POST['surename']) < 3){
         $_SESSION['note'] = 'Pavarde yra per trumpa';
-        header("Location: /saskaita.php");
+        header("Location: ./saskaita.php");
         die();
     }
 
@@ -66,7 +66,7 @@ if(!empty($_POST) && !empty($_POST['name'])){
             "text" => 'Nauja saskaita sukurta sekmingai'
         ];
 
-        header("Location: /saskaita.php");
+        header("Location: ./saskaita.php");
         die();
 
     }else{
@@ -76,7 +76,7 @@ if(!empty($_POST) && !empty($_POST['name'])){
             "text" => 'Toks asmens kodas jau yra uzimtas'
         ];
 
-        header("Location: /saskaita.php");
+        header("Location: ./saskaita.php");
         die();
     }
 
@@ -174,8 +174,8 @@ if(isset($_SESSION['note'])){
             <div class="line"></div>
 
             <div class="menu">
-                <a href="/saskaitu-sarasas.php">Perziureti saskaitu sarasa <i class="text-icon icon-external-link"></i></a><br>
-                <a href="/login.php?logout">Atsijungti <i class="icon-signout text-icon"></i> </a><br>
+                <a href="./saskaitu-sarasas.php">Perziureti saskaitu sarasa <i class="text-icon icon-external-link"></i></a><br>
+                <a href="./login.php?logout">Atsijungti <i class="icon-signout text-icon"></i> </a><br>
             </div>
 
         </div>

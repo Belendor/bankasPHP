@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['login']) || $_SESSION['login'] != 1) {
-    header('Location: /login.php');
+    header('Location: ./login.php');
     die();
 }
 
@@ -42,7 +42,7 @@ $sorted = bubleSort($data);
 
 function generateAdd ($name, $surename, $saskaita, $asmensKodas, $lesos){
 
-    return '<form action="/prideti-lesas.php" method="post">
+    return '<form action="./prideti-lesas.php" method="post">
             <input type="hidden" name="name" value="'.$name.'">
             <input type="hidden" name="surename" value="'.$surename.'">
             <input type="hidden" name="account" value="'.$saskaita.'">
@@ -55,7 +55,7 @@ function generateAdd ($name, $surename, $saskaita, $asmensKodas, $lesos){
 
 function generateRemove ($name, $surename, $saskaita, $asmensKodas, $lesos){
 
-    return '<form action="/nuskaiciuoti-lesas.php" method="post">
+    return '<form action="./nuskaiciuoti-lesas.php" method="post">
             <input type="hidden" name="name" value="'.$name.'">
             <input type="hidden" name="surename" value="'.$surename.'">
             <input type="hidden" name="account" value="'.$saskaita.'">
@@ -68,7 +68,7 @@ function generateRemove ($name, $surename, $saskaita, $asmensKodas, $lesos){
 
 function delete ($saskaita){
 
-    return '<form action="/istrinti.php" method="post">
+    return '<form action="./istrinti.php" method="post">
             <input type="hidden" name="delete" value="'.$saskaita.'">
             <button style="background-color: red" type="submit">Istrinti saskaita</button>
             </form>';
@@ -98,9 +98,40 @@ foreach($sorted as $value){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saskaitu sarasas</title>
     <style>
-        table, th, td {
-        border: 1px solid black;
+
+        td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
         }
+
+        tr:nth-child(even){background-color: #f2f2f2;}
+
+        tr:hover {background-color: #ddd;}
+
+        th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #0092E1;
+        color: white;
+        }
+        button{
+            width: 110px;
+            margin-bottom: 2px;
+            cursor: pointer;    
+        }
+        .menu{
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        a{
+            font-family: 'SEB Sans Serif';
+            text-decoration: unset;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
     </style>    
 </head>
 <body>
@@ -130,9 +161,10 @@ foreach($sorted as $value){
         </table>
     </div>
 
-    <a href="/saskaita.php">Sukurti nauja saskaita</a><br>
-
-    <a href="/login.php?logout">Atsijungti</a><br>
+    <div class="menu">
+        <a href="./saskaita.php">Sukurti nauja saskaita</a><br>
+        <a href="./login.php?logout">Atsijungti <i class="icon-signout text-icon"></i> </a><br>
+    </div>   
 
 </body>
 </html>
