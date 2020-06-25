@@ -179,6 +179,7 @@ if(isset($_SESSION['note'])){
         <?=$table?>
 
         </table>
+        
     </div>
 
     <div class="menu">

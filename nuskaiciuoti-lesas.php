@@ -15,9 +15,19 @@ if(!empty($_POST)){
             if($value['account'] == $_POST['account']){
                 if($value['lesos'] >= $_POST['sum']){
                     $value['lesos'] -= $_POST['sum'];
-                    $_SESSION['note'] = 'Pinigai nuskaiciuoti sekmingai';
+
+                    $_SESSION['note'] = [
+                        "message" => "message",
+                        "text" => 'Pinigai nuskaiciuoti sekmingai'
+                    ];
+
                 }else{
-                    $_SESSION['note'] = 'Nepakankamai lesu saskaitoje nurasyti tokia suma';
+
+                    $_SESSION['note'] = [
+                        "message" => "message",
+                        "text" => 'Nepakankamai lesu saskaitoje nurasyti tokia suma'
+                    ];
+
                 }
 
             }
@@ -85,6 +95,14 @@ if(!empty($_GET)){
                 </tr>';
 }
 
+if(isset($_SESSION['note'])){
+    if($_SESSION['note']['message'] == 'message'){
+        $errorColor = 'green';
+    }else{
+        $errorColor = 'red';
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -120,6 +138,15 @@ if(!empty($_GET)){
             font-weight: 700;
             margin-bottom: 5px;
         }
+
+        
+        .red{
+            background-color: rgba(201, 63, 63, 0.74);
+        }
+
+        .green{
+            background-color: rgba(35, 173, 35, 0.74);
+        }
         
     </style> 
 
@@ -129,11 +156,13 @@ if(!empty($_GET)){
 </head>
 <body>
 
-    <p><?php  
+    <p class="<?=$errorColor?> "><?php  
         
         if(isset($_SESSION['note'])) {
-            echo $_SESSION['note'];
+        
+            echo $_SESSION['note']['text'];
             unset($_SESSION['note']);
+            
         }
 
     ?></p><br>
