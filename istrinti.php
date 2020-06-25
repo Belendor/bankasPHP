@@ -18,17 +18,17 @@ if(array_key_exists('delete', $_POST)){
 
                 $_SESSION['note'] = [
                     "message" => "error",
-                    "text" => 'Toks asmens kodas jau yra uzimtas'
+                    "text" => 'Saskaitos su pinigais istrinti negalima'
                 ];
 
             }else{
                 array_splice($data, $key, 1);
 
                 $_SESSION['note'] = [
-                    "message" => "error",
-                    "text" => 'Toks asmens kodas jau yra uzimtas'
+                    "message" => "message",
+                    "text" => 'Saskaita istrinta'
                 ];
-                
+
             }
         }
     }
