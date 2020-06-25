@@ -6,7 +6,6 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] != 1) {
     die();
 }
 
-
 $data = json_decode(file_get_contents(__DIR__ .'/data.json'),1);
 
 $table = '';
@@ -89,6 +88,17 @@ foreach($sorted as $value){
 
 }
 
+$errorColor = '';
+
+if(isset($_SESSION['note'])){
+    if($_SESSION['note']['message'] == 'message'){
+        $errorColor = 'green';
+    }else{
+        $errorColor = 'red';
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -132,15 +142,25 @@ foreach($sorted as $value){
             margin-bottom: 5px;
         }
 
+        .red{
+            background-color: rgba(201, 63, 63, 0.74);
+        }
+
+        .green{
+            background-color: rgba(35, 173, 35, 0.74);
+        }
+
     </style>    
 </head>
 <body>
 
-    <p><?php  
+    <p class="<?=$errorColor?> "><?php  
         
         if(isset($_SESSION['note'])) {
-            echo $_SESSION['note'];
+        
+            echo $_SESSION['note']['text'];
             unset($_SESSION['note']);
+            
         }
 
     ?></p><br>

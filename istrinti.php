@@ -15,13 +15,24 @@ if(array_key_exists('delete', $_POST)){
         if($_POST['delete'] == $value['account']){
 
             if($value['lesos'] > 0){
-                $_SESSION['note'] = 'Istrinti ne tuscios saskaitos negalima';
+
+                $_SESSION['note'] = [
+                    "message" => "error",
+                    "text" => 'Toks asmens kodas jau yra uzimtas'
+                ];
+
             }else{
                 array_splice($data, $key, 1);
+
+                $_SESSION['note'] = [
+                    "message" => "error",
+                    "text" => 'Toks asmens kodas jau yra uzimtas'
+                ];
+                
             }
         }
-        
     }
+
 
     file_put_contents(__DIR__ .'/data.json', json_encode($data));
 
